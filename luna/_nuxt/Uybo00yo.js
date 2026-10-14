@@ -1,0 +1,1 @@
+import{b as e,k as t,mt as n}from"./CoKk4mC0.js";import{t as r}from"./CNs_Ozdc.js";var i=t({__name:`index`,setup(t){return r({layout:`default`}),(t,r)=>(n(),e(`div`))}});export{i as default};

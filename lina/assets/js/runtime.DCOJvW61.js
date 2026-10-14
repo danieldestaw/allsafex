@@ -1,0 +1,1 @@
+function e(e){return e?.$context?.getScope(`overlay`)||null}function t(t){return!!e(t)?.isDrawer}async function n(t){let n=e(t);return n?.isDrawer?n:t.$store.dispatch(`common/getDrawerActionMeta`)}export{t as n,n as t};

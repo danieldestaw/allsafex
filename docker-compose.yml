@@ -1,0 +1,115 @@
+services:
+  postgresql:
+    image: postgres:16-alpine
+    container_name: allsafex_db
+    restart: always
+    environment:
+      POSTGRES_DB: jumpserver
+      POSTGRES_USER: jumpserver
+      POSTGRES_PASSWORD: jumpserverpassword
+    volumes:
+      - jms_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jumpserver -d jumpserver"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: allsafex_redis
+    restart: always
+    volumes:
+      - jms_redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  core:
+    image: jumpserver/core:v5.0.0-ce
+    container_name: allsafex_core
+    restart: always
+    environment:
+      SECRET_KEY: Mgrol28HWJp5xpU2lEBTkzFNL4YYRC1UZ41rw7esrggi53Wea
+      BOOTSTRAP_TOKEN: LbFnFsVbmJM0XoRn
+      DB_ENGINE: postgresql
+      DB_HOST: postgresql
+      DB_PORT: 5432
+      DB_USER: jumpserver
+      DB_PASSWORD: jumpserverpassword
+      DB_NAME: jumpserver
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      DOMAINS: localhost,127.0.0.1
+      SITE_URL: http://localhost
+      WS_ALLOWED_ORIGINS: '["http://localhost","http://127.0.0.1","http://localhost:8080","http://127.0.0.1:8080"]'
+      ANSIBLE_DOCKER_ENABLED: "false"
+      SECURITY_SERVICE_ACCOUNT_REGISTRATION: "true"
+      VENDOR: "AllSafeX"
+      HELP_DOCUMENT_URL: "https://allsafex-pam.allsafex.com/"
+      LANGUAGES_SUPPORTED: "en,am"
+      LANGUAGE_CODE: "en"
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - jms_data:/opt/jumpserver/data
+      - ./core_custom/context_processor.py:/opt/jumpserver/apps/jumpserver/context_processor.py
+      - ./static_img:/opt/jumpserver/apps/static/img:ro
+      - ./apps/i18n:/opt/jumpserver/apps/i18n:ro
+      - ./apps/authentication/templates/authentication/login.html:/opt/jumpserver/apps/authentication/templates/authentication/login.html:ro
+      - ./apps/templates/_header_bar.html:/opt/jumpserver/apps/templates/_header_bar.html:ro
+      - ./apps/jumpserver/conf.py:/opt/jumpserver/apps/jumpserver/conf.py:ro
+      - ./apps/jumpserver/settings/base.py:/opt/jumpserver/apps/jumpserver/settings/base.py:ro
+      - ./apps/jumpserver/settings/custom.py:/opt/jumpserver/apps/jumpserver/settings/custom.py:ro
+      - ./apps/common/const/choices.py:/opt/jumpserver/apps/common/const/choices.py:ro
+      - ./apps/common/serializers/fields.py:/opt/jumpserver/apps/common/serializers/fields.py:ro
+      - ./apps/common/drf/renders/base.py:/opt/jumpserver/apps/common/drf/renders/base.py:ro
+      - ./apps/users/forms/profile.py:/opt/jumpserver/apps/users/forms/profile.py:ro
+      - ./apps/users/templates/users/forgot_password.html:/opt/jumpserver/apps/users/templates/users/forgot_password.html:ro
+      - ./apps/jumpserver/views/other.py:/opt/jumpserver/apps/jumpserver/views/other.py:ro
+      - ./apps/jumpserver/settings/_xpack.py:/opt/jumpserver/apps/jumpserver/settings/_xpack.py:ro
+      - ./apps/templates/resource_download.html:/opt/jumpserver/apps/templates/resource_download.html:ro
+      - ./apps/authentication/mixins.py:/opt/jumpserver/apps/authentication/mixins.py:ro
+
+  koko:
+    image: jumpserver/koko:v5.0.0-ce
+    container_name: allsafex_ssh_gateway
+    restart: always
+    environment:
+      CORE_HOST: http://core:8080
+      BOOTSTRAP_TOKEN: LbFnFsVbmJM0XoRn
+    depends_on:
+      - core
+    volumes:
+      - ./koko_locale:/opt/koko/locale:ro
+
+  web:
+    image: jumpserver/web:v5.0.0-ce
+    container_name: allsafex_web
+    restart: always
+    environment:
+      CHEN_ENABLED: "0"
+      KAEL_ENABLED: "0"
+      CORE_HOST: core:8080
+      KOKO_HOST: koko:5000
+    ports:
+      - "80:80"
+    depends_on:
+      - core
+      - koko
+    volumes:
+      - jms_data:/opt/jumpserver/data
+      - ./lina:/opt/lina
+      - ./static_img:/opt/static_img:ro
+      - ./nginx_conf/00_branding.conf:/etc/nginx/includes/00_branding.conf:ro
+      - ./luna:/opt/luna
+
+volumes:
+  jms_pgdata:
+  jms_redisdata:
+  jms_data:

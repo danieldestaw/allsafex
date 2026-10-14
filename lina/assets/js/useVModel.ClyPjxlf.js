@@ -1,0 +1,1 @@
+import{F as e,x as t}from"./_plugin-vue_export-helper.DOKAWpXA.js";e();function n(e,n,r,i){let a=i||`update:${r}`;return t({get(){return e[r]},set(e){n(a,e)}})}export{n as t};

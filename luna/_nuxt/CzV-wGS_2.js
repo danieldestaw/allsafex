@@ -1,0 +1,1 @@
+import{Kt as e,b as t,k as n,mt as r}from"./CoKk4mC0.js";import{it as i}from"./qiR1YdQ6.js";import{t as a}from"./Ccl2L3rM.js";var o=n({__name:`tools`,async setup(n){let o,s,c=a();return[o,s]=e(()=>i(c(`videoplayer`),{replace:!0})),await o,s(),(e,n)=>(r(),t(`div`))}});export{o as default};

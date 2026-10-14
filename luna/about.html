@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AllSafeX Workspace</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #2C2C2C;
+      color: #eaeaea;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .card {
+      width: 280px;
+      padding: 28px 20px 24px;
+      text-align: center;
+    }
+    img {
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+    .name {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 6px 0 4px;
+    }
+    .version {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 24px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: rgba(26, 179, 148, 0.14);
+      color: #34d399;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 4px 0 14px;
+      border: 1px solid rgba(52, 211, 153, 0.22);
+    }
+    .copyright {
+      font-size: 13px;
+      color: #8e929c;
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+<style id="allsafex-luna-theme">
+:root, :host, .light, .dark, html, body {
+  --ui-primary: #FF7900 !important;
+  --ui-color-primary-50: #fff7ed !important;
+  --ui-color-primary-100: #ffedd5 !important;
+  --ui-color-primary-200: #fed7aa !important;
+  --ui-color-primary-300: #fdba74 !important;
+  --ui-color-primary-400: #FF7900 !important;
+  --ui-color-primary-500: #FF7900 !important;
+  --ui-color-primary-600: #ea580c !important;
+  --ui-color-primary-700: #c2410c !important;
+  --ui-color-primary-800: #9a3412 !important;
+  --ui-color-primary-900: #7c2d12 !important;
+  --ui-color-primary-950: #431407 !important;
+
+  --theme-accent: #FF7900 !important;
+  --color-text-accent: #FF7900 !important;
+  --color-bg-accent: #FF7900 !important;
+  --color-border-accent: #FF7900 !important;
+  --color-outline-primary: #FF7900 !important;
+  --app-focus-ring: #FF7900 !important;
+  --app-state-selected: rgba(255, 121, 0, 0.15) !important;
+  --editor-selection: rgba(255, 121, 0, 0.25) !important;
+  --editor-cursor: #FF7900 !important;
+  --terminal-cursor: #FF7900 !important;
+  --sidebar-icon-color: #FF7900 !important;
+}
+
+.bg-primary, .bg-primary-500, button[class*="bg-primary"], .bg-\[var\(--ui-primary\)\] {
+  background-color: #FF7900 !important;
+  color: #ffffff !important;
+}
+button[class*="bg-primary"]:hover, .bg-primary:hover {
+  background-color: #e66d00 !important;
+}
+.text-primary, .text-primary-500, [class*="text-primary"] {
+  color: #FF7900 !important;
+}
+.border-primary, .border-primary-500, [class*="border-primary"] {
+  border-color: #FF7900 !important;
+}
+.ring-primary, [class*="ring-primary"], .focus-visible\:ring-primary:focus-visible {
+  --tw-ring-color: #FF7900 !important;
+}
+
+input[type="radio"]:checked, input[type="checkbox"]:checked, [aria-checked="true"] {
+  accent-color: #FF7900 !important;
+}
+
+.progress-line-fill {
+  background: linear-gradient(90deg, rgba(255, 121, 0, 0.25), #FF7900 55%, transparent) !important;
+}
+.progress-label.is-on {
+  color: #FF7900 !important;
+  filter: drop-shadow(0 0 12px rgba(255, 121, 0, 0.5)) !important;
+}
+.brand-logo svg, svg.brand-logo {
+  display: none !important;
+}
+.brand-logo img, header img.brand-logo, [class*="BrandLogo"] img {
+  content: url('/static/img/logo.png') !important;
+  height: 32px !important;
+  width: auto !important;
+  display: inline-block !important;
+}
+</style>
+<script>
+  (function() {
+    function sanitizeTitle(val) {
+      if (!val || typeof val !== 'string') return 'AllSafeX Workspace';
+      var clean = val
+        .replace(/Luna\s*-\s*JumpServer\s*Workspace/gi, 'AllSafeX Workspace')
+        .replace(/Luna\s*-\s*JumpServer/gi, 'AllSafeX Workspace')
+        .replace(/JumpServer/gi, 'AllSafeX')
+        .replace(/\bLuna\b/gi, 'AllSafeX Workspace');
+      if (/luna/i.test(clean) || /jumpserver/i.test(clean)) {
+        clean = 'AllSafeX Workspace';
+      }
+      return clean;
+    }
+
+    try {
+      var docProto = Document.prototype;
+      var titleDescriptor = Object.getOwnPropertyDescriptor(docProto, 'title') ||
+                            Object.getOwnPropertyDescriptor(document, 'title');
+      if (titleDescriptor && titleDescriptor.set) {
+        var origSet = titleDescriptor.set;
+        var origGet = titleDescriptor.get;
+        Object.defineProperty(document, 'title', {
+          get: function() {
+            var curr = origGet ? origGet.call(this) : 'AllSafeX Workspace';
+            return sanitizeTitle(curr);
+          },
+          set: function(val) {
+            origSet.call(this, sanitizeTitle(val));
+          },
+          configurable: true
+        });
+      }
+    } catch(e) {}
+
+    function checkTitle() {
+      if (document.title && (/Luna/i.test(document.title) || /JumpServer/i.test(document.title))) {
+        document.title = sanitizeTitle(document.title);
+      }
+      var tEl = document.querySelector('title');
+      if (tEl && (/Luna/i.test(tEl.textContent) || /JumpServer/i.test(tEl.textContent))) {
+        tEl.textContent = sanitizeTitle(tEl.textContent);
+      }
+    }
+
+    checkTitle();
+    document.title = 'AllSafeX Workspace';
+    setInterval(checkTitle, 200);
+
+    var titleObs = new MutationObserver(checkTitle);
+    if (document.head) {
+      titleObs.observe(document.head, { childList: true, subtree: true, characterData: true });
+    } else {
+      document.addEventListener('DOMContentLoaded', function() {
+        titleObs.observe(document.head, { childList: true, subtree: true, characterData: true });
+      });
+    }
+
+    function replaceBrandLuna(node) {
+      if (!node) return;
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (node.nodeValue) {
+          var text = node.nodeValue;
+          if (text.includes("JumpServer")) {
+            text = text.replace(/JumpServer/g, "AllSafeX");
+          }
+          if (/\bKoKo\b/.test(text)) {
+            text = text.replace(/\bKoKo\b/g, "AllSafeX SSH Gateway");
+          }
+          if (/\bLuna\b/.test(text) && !text.includes("LunaSetting")) {
+            text = text.replace(/\bLuna\b/g, "AllSafeX Workspace");
+          }
+          if (node.nodeValue !== text) {
+            node.nodeValue = text;
+          }
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        if (node.tagName === "A") {
+          if (node.href && node.href.includes("github.com/jumpserver")) {
+            node.href = "https://github.com/danieldestaw/allsafex";
+          }
+          if (node.href && (node.href.includes("jumpserver.com/docs") || node.href.includes("docs.jumpserver.org") || node.href.includes("jumpserver.org"))) {
+            node.href = "https://allsafex-pam.allsafex.com/";
+          }
+        }
+        if (node.tagName === "SCRIPT" || node.tagName === "STYLE" || node.tagName === "INPUT" || node.tagName === "TEXTAREA") return;
+        for (var i = 0; i < node.childNodes.length; i++) {
+          replaceBrandLuna(node.childNodes[i]);
+        }
+      }
+    }
+
+    var bodyObs = new MutationObserver(function(mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var added = mutations[i].addedNodes;
+        for (var j = 0; j < added.length; j++) {
+          replaceBrandLuna(added[j]);
+        }
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", function() {
+      replaceBrandLuna(document.body);
+      bodyObs.observe(document.body, { childList: true, subtree: true, characterData: true });
+    });
+    if (document.body) {
+      replaceBrandLuna(document.body);
+      bodyObs.observe(document.body, { childList: true, subtree: true, characterData: true });
+    }
+  })();
+</script>
+</head>
+<body>
+  <div class="card">
+    <img src="/logo.png" alt="App logo" id="logo" />
+    <div class="name" id="name" data-default-name="JumpServer">JumpServer</div>
+    <div class="version" id="version">Version</div>
+    <p class="copyright" id="copyright">
+      Copyright © JumpServer
+    </p>
+  </div>
+  <script>
+    const lang = (navigator.language || '').toLowerCase();
+    const isZh = lang.startsWith('zh');
+    const params = new URLSearchParams(window.location.search);
+    const customName = (params.get('name') || '').trim();
+    const isCustom = params.get('custom') === '1';
+    const version = params.get('version') || '';
+    const logoEl = document.getElementById('logo');
+    const nameEl = document.getElementById('name');
+    const versionEl = document.getElementById('version');
+    const copyEl = document.getElementById('copyright');
+    const appName = customName || nameEl.dataset.defaultName || 'JumpServer';
+
+    document.title = isZh ? `关于 ${appName}` : `About ${appName}`;
+    logoEl.alt = appName;
+    versionEl.textContent = version ? `v${version}` : (isZh ? '版本信息' : 'Version');
+    nameEl.textContent = appName;
+
+    if (isCustom) {
+      copyEl.hidden = true;
+      copyEl.textContent = '';
+    } else {
+      copyEl.hidden = false;
+      copyEl.textContent = isZh
+        ? 'Copyright © JumpServer 保留所有权利'
+        : 'Copyright © JumpServer. All Rights Reserved';
+    }
+  </script>
+</body>
+</html>

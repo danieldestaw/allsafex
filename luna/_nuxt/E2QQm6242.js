@@ -1,0 +1,1 @@
+import{k as e,mt as t,v as n}from"./CoKk4mC0.js";import{t as r}from"./Bx-AoFwL.js";var i=e({__name:`telnet`,setup(e){return(e,i)=>(t(),n(r,{category:`terminal`,protocol:`telnet`}))}});export{i as default};

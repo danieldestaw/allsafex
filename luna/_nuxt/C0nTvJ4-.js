@@ -1,0 +1,1 @@
+import{k as e,mt as t,v as n}from"./CoKk4mC0.js";import{t as r}from"./Bx-AoFwL.js";var i=e({__name:`oracle`,setup(e){return(e,i)=>(t(),n(r,{category:`databases`,protocol:`oracle`}))}});export{i as default};

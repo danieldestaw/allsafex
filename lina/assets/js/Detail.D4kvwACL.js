@@ -1,0 +1,1 @@
+import{t as e}from"./AppletDetail.rl9RGc9j.js";export{e as default};

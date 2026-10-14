@@ -1,0 +1,1 @@
+import{_ as e,b as t,k as n,mt as r,nr as i}from"./CoKk4mC0.js";import{t as a}from"./CNs_Ozdc.js";var o=n({__name:`index`,setup(n){return a({redirect:`/setting/general`}),(n,a)=>(r(),t(`div`,null,[e(`h1`,null,i(n.$t(`Common.Settings`)),1)]))}});export{o as default};

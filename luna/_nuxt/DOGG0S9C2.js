@@ -1,0 +1,1 @@
+import{k as e,mt as t,v as n}from"./CoKk4mC0.js";import{t as r}from"./Bx-AoFwL.js";var i=e({__name:`vnc`,setup(e){return(e,i)=>(t(),n(r,{category:`remotedesktop`,protocol:`vnc`}))}});export{i as default};

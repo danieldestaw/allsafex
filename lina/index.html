@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/facio.ico?v=3">
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>AllSafeX</title>
+    
+    <script>
+        // Immediate storage purge for old JumpServer theme cache
+        try {
+            localStorage.removeItem('themeColors');
+            const theme = localStorage.getItem('theme');
+            if (theme && theme !== 'allsafex') {
+                localStorage.removeItem('theme');
+            }
+            const phoneCode = localStorage.getItem('prePhoneCode');
+            if (!phoneCode || phoneCode === '+86') {
+                localStorage.setItem('prePhoneCode', '+251');
+            }
+            const cookieMatch = document.cookie.match(/django_language=([^;]+)/);
+            if (cookieMatch && (cookieMatch[1] === 'am' || cookieMatch[1] === 'en')) {
+                localStorage.setItem('django_language', cookieMatch[1]);
+            }
+            const lang = localStorage.getItem('django_language') || '';
+            if (lang && lang !== 'en' && lang !== 'am') {
+                localStorage.setItem('django_language', 'en');
+                document.cookie = 'django_language=en;path=/;max-age=31536000';
+            }
+        } catch(e) {}
+
+        // Immediate application of Safety Orange root styles
+        try {
+            const root = document.documentElement;
+            root.style.setProperty('--color-primary', '#FF7900', 'important');
+            root.style.setProperty('--el-color-primary', '#FF7900', 'important');
+            root.style.setProperty('--banner-bg', '#000000', 'important');
+            root.style.setProperty('--menu-text-active', '#FF7900', 'important');
+            root.style.setProperty('--color-link', '#FF7900', 'important');
+        } catch(e) {}
+
+        // Ensure loading spinner never hangs indefinitely
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const l = document.getElementById('loading');
+                if (l) {
+                    l.style.opacity = '0';
+                    l.style.transition = 'opacity 0.3s ease';
+                    setTimeout(function() {
+                        if (l && l.parentNode) l.parentNode.removeChild(l);
+                    }, 300);
+                }
+            }, 800);
+        });
+    </script>
+
+    <style>
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 9999;
+        }
+
+        #loading .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid transparent;
+            border-top-color: #FF7900;
+            border-radius: 50%;
+            -webkit-animation: spin 1s linear infinite;
+                    animation: spin 1s linear infinite;
+        }
+
+        #loading .spinner::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: 40px;
+            height: 40px;
+            border: 3px solid transparent;
+            border-top-color: rgba(255, 121, 0, 0.25);
+            border-radius: 50%;
+            -webkit-animation: spin 2s linear infinite;
+                    animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                        transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                        transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                        transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                        transform: rotate(360deg);
+            }
+        }
+    </style>
+  <script type="module" crossorigin src="/ui/assets/js/index.DhTKJ1Xk.js?v=5"></script>
+  <link rel="modulepreload" crossorigin href="/ui/assets/js/_plugin-vue_export-helper.DOKAWpXA.js">
+  <link rel="modulepreload" crossorigin href="/ui/assets/js/common.CrUqnYLU.js">
+  <link rel="modulepreload" crossorigin href="/ui/assets/js/env.DG0lntOl.js">
+  <link rel="modulepreload" crossorigin href="/ui/assets/js/store.pLHeQRgz.js">
+  <link rel="stylesheet" crossorigin href="/ui/assets/css/index.allsafex_v3.css?v=5">
+
+    <!-- AllSafeX Custom Theme & Brand Configuration -->
+    <script>
+        (function() {
+            // Keep document title strictly synced to AllSafeX
+            try {
+                document.title = 'AllSafeX';
+                const originalTitle = Object.getOwnPropertyDescriptor(Document.prototype, 'title');
+                if (originalTitle && originalTitle.set) {
+                    Object.defineProperty(document, 'title', {
+                        set: function(val) {
+                            if (typeof val === 'string') {
+                                val = val.replace(/JumpServer/gi, 'AllSafeX');
+                            }
+                            originalTitle.set.call(this, val);
+                        },
+                        get: function() {
+                            return originalTitle.get.call(this);
+                        }
+                    });
+                }
+            } catch(e) {}
+
+            function replaceBrand(node) {
+                if (!node) return;
+                if (node.nodeType === Node.TEXT_NODE) {
+                    if (node.nodeValue) {
+                        let text = node.nodeValue;
+                        if (text.includes('JumpServer')) {
+                            text = text.replace(/JumpServer/g, 'AllSafeX');
+                        }
+                        // Replace exact standalone component names in titles/menus if present
+                        if (/\bKoKo\b/.test(text)) {
+                            text = text.replace(/\bKoKo\b/g, 'AllSafeX SSH Gateway');
+                        }
+                        if (/\bLuna\b/.test(text) && !text.includes('LunaSetting')) {
+                            text = text.replace(/\bLuna\b/g, 'AllSafeX Workspace');
+                        }
+                        if (node.nodeValue !== text) {
+                            node.nodeValue = text;
+                        }
+                    }
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    if (node.tagName === 'A') {
+                        if (node.href && node.href.includes('github.com/jumpserver')) {
+                            node.href = 'https://github.com/danieldestaw/allsafex';
+                        }
+                        if (node.href && (node.href.includes('jumpserver.com/docs') || node.href.includes('docs.jumpserver.org') || node.href.includes('jumpserver.org'))) {
+                            node.href = 'https://allsafex-pam.allsafex.com/';
+                        }
+                    }
+                    if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE' || node.tagName === 'INPUT' || node.tagName === 'TEXTAREA') return;
+                    for (let i = 0; i < node.childNodes.length; i++) {
+                        replaceBrand(node.childNodes[i]);
+                    }
+                }
+            }
+
+            function enforceLogos() {
+                const textLogos = document.querySelectorAll(".sidebar-logo-text, .nav-logo img");
+                for (let i = 0; i < textLogos.length; i++) {
+                    const img = textLogos[i];
+                    if (!img.src || !img.src.includes("logo_text_white.png")) {
+                        img.src = "/static/img/logo_text_white.png";
+                    }
+                }
+                const iconLogos = document.querySelectorAll(".sidebar-logo:not(.sidebar-logo-text)");
+                for (let i = 0; i < iconLogos.length; i++) {
+                    const img = iconLogos[i];
+                    if (!img.src || !img.src.includes("logo.png")) {
+                        img.src = "/static/img/logo.png";
+                    }
+                }
+            }
+
+            const brandObserver = new MutationObserver(function(mutations) {
+                for (let i = 0; i < mutations.length; i++) {
+                    const added = mutations[i].addedNodes;
+                    for (let j = 0; j < added.length; j++) {
+                        replaceBrand(added[j]);
+                    }
+                }
+                enforceLogos();
+            });
+
+            window.addEventListener('DOMContentLoaded', function() {
+                replaceBrand(document.body);
+                enforceLogos();
+                brandObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
+            });
+
+            setInterval(enforceLogos, 250);
+        })();
+    </script>
+
+<style id="allsafex-theme">
+    :root {
+        --color-primary: #FF7900 !important;
+        --el-color-primary: #FF7900 !important;
+        --el-color-primary-rgb: 255, 121, 0 !important;
+        --el-color-primary-light-1: #ff861a !important;
+        --el-color-primary-light-2: #ff9433 !important;
+        --el-color-primary-light-3: #ffa14d !important;
+        --el-color-primary-light-4: #ffaf66 !important;
+        --el-color-primary-light-5: #ffbc80 !important;
+        --el-color-primary-light-6: #ffca99 !important;
+        --el-color-primary-light-7: #ffd7b3 !important;
+        --el-color-primary-light-8: #ffe4cc !important;
+        --el-color-primary-light-9: #fff7ed !important;
+        --el-color-primary-dark-2: #cc6100 !important;
+        --banner-bg: #000000 !important;
+        --menu-text-active: #FF7900 !important;
+        --menu-hover: #fff7ed !important;
+        --ai-primary: #FF7900 !important;
+        --ai-primary-light: #fff7ed !important;
+        --ai-focus-ring: 0 0 0 3px rgba(255, 121, 0, 0.2) !important;
+        --el-button-hover-text-color: #FF7900 !important;
+        --el-button-hover-border-color: #FF7900 !important;
+        --el-button-hover-bg-color: #fff7ed !important;
+        --el-button-active-border-color: #cc6100 !important;
+        --el-button-active-text-color: #cc6100 !important;
+        --el-button-active-bg-color: #ffe8d1 !important;
+    }
+
+    /* Top navbar - pure black */
+    .navbar, .navbar[data-v-08bdf875] {
+        background-color: #000000 !important;
+        border-bottom: 1px solid #141414 !important;
+    }
+
+    .navbar .navbar-left .left-item .nav-logo:hover {
+        background: #1a1a1a !important;
+    }
+
+    /* Enforce CSS image replacement on navbar logo */
+    .sidebar-logo-text,
+    .nav-logo img,
+    .sidebar-logo-container:not(.collapse) img {
+        content: url('/static/img/logo_text_white.png') !important;
+        height: 32px !important;
+        max-height: 32px !important;
+        width: auto !important;
+        display: block !important;
+        object-fit: contain !important;
+    }
+
+    .sidebar-logo-container.collapse img,
+    .sidebar-logo:not(.sidebar-logo-text) {
+        content: url('/static/img/logo.png') !important;
+        height: 32px !important;
+        max-height: 32px !important;
+        width: auto !important;
+        display: block !important;
+        object-fit: contain !important;
+    }
+
+    .sidebar-logo-container svg.sidebar-logo,
+    .sidebar-logo-container svg.logo-symbol {
+        display: none !important;
+    }
+
+    /* ABSOLUTELY NO GREEN ON ANY BUTTON HOVER */
+    button:hover,
+    button:focus,
+    .el-button:hover,
+    .el-button:focus {
+        color: #FF7900 !important;
+        border-color: #FF7900 !important;
+        background-color: #fff7ed !important;
+    }
+
+    .el-button--primary:hover,
+    .el-button--primary:focus,
+    .el-button--primary:active {
+        color: #ffffff !important;
+        background-color: #ff8e26 !important;
+        border-color: #ff8e26 !important;
+    }
+
+    .el-button--primary.is-plain:hover,
+    .el-button--primary.is-plain:focus,
+    .el-button--primary.is-plain:active {
+        color: #ffffff !important;
+        background-color: #FF7900 !important;
+        border-color: #FF7900 !important;
+    }
+
+    .el-button--default:hover,
+    .el-button--default:focus,
+    .el-button--default:active {
+        color: #FF7900 !important;
+        border-color: #FF7900 !important;
+        background-color: #fff7ed !important;
+    }
+
+    /* Dashboard metrics & indicators - NEVER GREEN */
+    .metric-value.increase,
+    .metric-item .increase,
+    .increase {
+        color: #FF7900 !important;
+    }
+
+    .el-checkbox__input.is-checked .el-checkbox__inner,
+    .el-radio__input.is-checked .el-radio__inner {
+        background-color: #FF7900 !important;
+        border-color: #FF7900 !important;
+    }
+
+    .el-switch.is-checked .el-switch__core {
+        background-color: #FF7900 !important;
+        border-color: #FF7900 !important;
+    }
+
+    .el-pagination.is-background .el-pager li:not(.disabled).is-active {
+        background-color: #FF7900 !important;
+        color: #fff !important;
+    }
+
+    .el-tabs__item.is-active,
+    .el-tabs__item:hover {
+        color: #FF7900 !important;
+    }
+
+    .el-tabs__active-bar {
+        background-color: #FF7900 !important;
+    }
+
+    .el-menu-item.is-active {
+        color: #FF7900 !important;
+    }
+
+    .el-dropdown-menu__item:not(.is-disabled):focus, 
+    .el-dropdown-menu__item:not(.is-disabled):hover {
+        background-color: #fff7ed !important;
+        color: #FF7900 !important;
+    }
+
+    a:hover, .el-link:hover {
+        color: #FF7900 !important;
+    }
+
+    .el-input__wrapper.is-focus {
+        box-shadow: 0 0 0 1px #FF7900 inset !important;
+    }
+
+    ::selection {
+        background-color: #FF7900 !important;
+        color: #ffffff !important;
+    }
+</style>
+</head>
+<body>
+<noscript>
+    <strong>
+        We're sorry but AllSafeX doesn't work properly without JavaScript enabled.
+        Please enable it to continue.
+    </strong>
+</noscript>
+<script>
+    window.onload = function () {
+        if (location.pathname === '/') {
+            location.pathname = '/ui/'
+        }
+        const pathname = window.location.pathname
+        if (pathname.startsWith('/core')) {
+            return
+        }
+        if (pathname.indexOf('/ui') === -1) {
+            window.location.href = window.location.origin + '/ui/#' + pathname
+        }
+        if (pathname.startsWith('/ui/#/chat')) {
+            window.location.href = window.location.origin + pathname
+        }
+    }
+</script>
+<div id="app">
+</div>
+<div id="loading">
+    <div class="spinner"></div>
+</div>
+</body>
+</html>

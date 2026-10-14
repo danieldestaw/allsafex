@@ -1,0 +1,1 @@
+import{D as e,_ as t,b as n,k as r,mt as i}from"./CoKk4mC0.js";import{t as a}from"./vOLL4thF2.js";import{t as o}from"./DHzErXjk2.js";import{t as s}from"./CNs_Ozdc.js";var c={class:`flex h-full min-h-0 flex-col`},l={class:`min-h-0 flex-1`},u=r({__name:`connect`,setup(r){return s({layout:`lion`}),(r,s)=>(i(),n(`div`,c,[t(`div`,l,[e(o)]),e(a)]))}});export{u as default};

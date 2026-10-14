@@ -1,0 +1,1 @@
+function e(e){return!!(e&&`kind`in e&&e.kind===`sql`)}function t(e){return!!(e&&`kind`in e&&e.kind===`file`)}function n(e){return!!(e&&`kind`in e&&e.kind===`terminal`)}function r(e){return!!(e&&`kind`in e&&e.kind===`script`)}export{r as i,t as n,n as r,e as t};

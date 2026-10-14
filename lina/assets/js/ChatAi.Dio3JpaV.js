@@ -1,0 +1,1 @@
+import{Dt as e,F as t,J as n,O as r,T as i,ft as a,t as o}from"./_plugin-vue_export-helper.DOKAWpXA.js";import{bc as s}from"./index.DhTKJ1Xk.js";a(),t();var c={class:`chat-ai-page`},l=o({__name:`index`,setup(t){return(t,a)=>(n(),i(`div`,c,[r(e(s),{"drawer-panel-visible":!0})]))}},[[`__scopeId`,`data-v-82f39b91`]]);export{l as default};

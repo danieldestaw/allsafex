@@ -1,0 +1,1 @@
+import{En as e,g as t}from"./CoKk4mC0.js";import{S as n}from"./BzPHGqqY.js";import{t as r}from"./Dq5Eyqgf.js";function i(i){let a=r();return t(()=>String(e(i)||``).trim()||(n()&&a.currentSite?a.currentSite:window.location.origin))}export{i as t};

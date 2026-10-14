@@ -1,0 +1,1 @@
+import{vn as e}from"./CoKk4mC0.js";var t=e(!1),n=e(``),r=()=>({batchPanelOpen:t,batchCommand:n,setOpen:e=>{t.value=e},toggle:()=>{t.value=!t.value},fillCommand:e=>{n.value=e,t.value=!0}});export{r as t};

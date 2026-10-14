@@ -1,0 +1,1 @@
+import{t as e}from"./store.pLHeQRgz.js";import{Gs as t}from"./index.DhTKJ1Xk.js";var n={name:`GlobalSubmenu`,extends:t,async beforeRouteEnter(){return await e.dispatch(`users/enterGlobalOrg`),!0},async beforeRouteLeave(){return await e.dispatch(`users/leaveGlobalOrg`),!0}};export{n as default};

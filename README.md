@@ -14,7 +14,7 @@
 
 ---
 
-## 🛡️ What is AllSafeX?
+##  What is AllSafeX?
 
 **AllSafeX** is an open-source **Jumphost** solution engineered for modern DevOps, SecOps, and IT engineering teams. It enforces Zero Trust principles by mediating, securing, authenticating, and auditing all administrative sessions across critical infrastructure:
 
@@ -28,7 +28,7 @@ All connections occur securely through web browsers or native desktop terminals 
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **Centralized Credential Vault**: Eliminate hardcoded passwords and SSH keys. AllSafeX automatically injects credentials at session launch.
 - **Protocol Gateway**: High-performance browser-based terminal emulator, web-based RDP desktop client, and database workspace.
@@ -40,7 +40,7 @@ All connections occur securely through web browsers or native desktop terminals 
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 +-------------------------------------------------------------+
@@ -100,7 +100,7 @@ http://<your-server-ip>/
 
 ---
 
-## 📦 Container Services
+## Container Services
 
 | Container Name | Service | Function |
 | :--- | :--- | :--- |
@@ -112,7 +112,7 @@ http://<your-server-ip>/
 
 ---
 
-## 🌍 Internationalization
+##  Internationalization
 
 AllSafeX supports internationalization out-of-the-box:
 - **English** (Default)
@@ -122,7 +122,7 @@ Switch languages dynamically from the top-right user menu.
 
 ---
 
-## 📚 Resources & Links
+##  Resources & Links
 
 - **Official Website & Docs**: [https://jump.allsafex.com/](https://jump.allsafex.com/)
 - **Technical Support**: [https://jump.allsafex.com/support](https://jump.allsafex.com/support)
@@ -130,6 +130,6 @@ Switch languages dynamically from the top-right user menu.
 
 ---
 
-## 📄 License
+## License
 
 AllSafeX is open source software released under the **GNU General Public License v3.0 (GPLv3)**. See the `LICENSE` file for details.

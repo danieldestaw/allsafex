@@ -135,7 +135,7 @@ class PrepareRequestMixin:
                 "en": {
                     "name": "AllSafeX",
                     "displayname": "AllSafeX",
-                    "url": "https://allsafex-pam.allsafex.com/"
+                    "url": "https://jump.allsafex.com/"
                 }
             },
         }

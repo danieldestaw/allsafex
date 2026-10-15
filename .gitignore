@@ -55,3 +55,11 @@ apps.iml
 requirements/face_models/
 context
 .envrc
+
+# Built release installers
+downloads/
+downloads/public/*.exe
+downloads/public/*.msi
+downloads/public/*.deb
+downloads/public/*.dmg
+downloads/public/*.AppImage

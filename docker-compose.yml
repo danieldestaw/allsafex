@@ -48,7 +48,8 @@ services:
       ANSIBLE_DOCKER_ENABLED: "false"
       SECURITY_SERVICE_ACCOUNT_REGISTRATION: "true"
       VENDOR: "AllSafeX"
-      HELP_DOCUMENT_URL: "https://allsafex-pam.allsafex.com/"
+      HELP_DOCUMENT_URL: "https://jump.allsafex.com/"
+      HELP_SUPPORT_URL: "https://jump.allsafex.com/support"
       LANGUAGES_SUPPORTED: "en,am"
       LANGUAGE_CODE: "en"
     depends_on:
@@ -111,6 +112,7 @@ services:
       - ./static_img:/opt/static_img:ro
       - ./nginx_conf/00_branding.conf:/etc/nginx/includes/00_branding.conf:ro
       - ./allsafex_workbench:/opt/luna
+      - ./downloads/public:/opt/download/public:ro
 
 volumes:
   jms_pgdata:

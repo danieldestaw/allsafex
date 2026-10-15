@@ -447,7 +447,7 @@ class Config(dict):
                 "en": {
                     "name": "AllSafeX",
                     "displayname": "AllSafeX",
-                    "url": "https://allsafex-pam.allsafex.com/"
+                    "url": "https://jump.allsafex.com/"
                 }
             },
             "strict": True,
@@ -796,8 +796,8 @@ class Config(dict):
         'TERMINAL_TELNET_REGEX': '',
 
         # 导航栏 帮助
-        'HELP_DOCUMENT_URL': 'https://allsafex-pam.allsafex.com/',
-        'HELP_SUPPORT_URL': 'https://allsafex-pam.allsafex.com/support',
+        'HELP_DOCUMENT_URL': 'https://jump.allsafex.com/',
+        'HELP_SUPPORT_URL': 'https://jump.allsafex.com/support',
 
         'FORGOT_PASSWORD_URL': '',
         'HEALTH_CHECK_TOKEN': '',

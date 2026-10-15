@@ -6,9 +6,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)](https://github.com/danieldestaw/allsafex/releases)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://www.docker.com/)
-[![Documentation](https://img.shields.io/badge/docs-allsafex--pam-green.svg)](https://allsafex-pam.allsafex.com/)
+[![Documentation](https://img.shields.io/badge/docs-allsafex--pam-green.svg)](https://jump.allsafex.com/)
 
-[Documentation](https://allsafex-pam.allsafex.com/) · [Releases](https://github.com/danieldestaw/allsafex/releases) · [Support](https://allsafex-pam.allsafex.com/support)
+[Documentation](https://jump.allsafex.com/) · [Releases](https://github.com/danieldestaw/allsafex/releases) · [Support](https://jump.allsafex.com/support)
 
 </div>
 
@@ -124,8 +124,8 @@ Switch languages dynamically from the top-right user menu.
 
 ## 📚 Resources & Links
 
-- **Official Website & Docs**: [https://allsafex-pam.allsafex.com/](https://allsafex-pam.allsafex.com/)
-- **Technical Support**: [https://allsafex-pam.allsafex.com/support](https://allsafex-pam.allsafex.com/support)
+- **Official Website & Docs**: [https://jump.allsafex.com/](https://jump.allsafex.com/)
+- **Technical Support**: [https://jump.allsafex.com/support](https://jump.allsafex.com/support)
 - **Release Downloads**: [https://github.com/danieldestaw/allsafex/releases](https://github.com/danieldestaw/allsafex/releases)
 
 ---

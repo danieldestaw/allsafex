@@ -100,8 +100,8 @@ if CONFIG.VENDOR.lower() in ('jumpserver', 'allsafex'):
         },
         'CONTACT': {
             'name': 'AllSafeX',
-            'url': 'https://allsafex-pam.allsafex.com',
-            'email': 'support@allsafex-pam.allsafex.com',
+            'url': 'https://jump.allsafex.com',
+            'email': 'support@jump.allsafex.com',
         },
     })
 

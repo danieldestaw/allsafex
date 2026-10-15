@@ -1,6 +1,6 @@
 <div align="center">
   <a name="readme-top"></a>
-  <a href="https://allsafex-pam.allsafex.com" target="_blank"><img src="https://download.allsafex-pam.allsafex.com/images/allsafex-logo.svg" alt="AllSafeX" width="300" /></a>
+  <a href="https://jump.allsafex.com" target="_blank"><img src="https://download.jump.allsafex.com/images/allsafex-logo.svg" alt="AllSafeX" width="300" /></a>
   
 ## オープンソースの PAM プラットフォーム (バスティオン ホスト)
 
@@ -90,7 +90,7 @@ https://www.gnu.org/licenses/gpl-3.0.html
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an " AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 <!-- AllSafeX official link -->
-[docs-link]: https://allsafex-pam.allsafex.com/docs
+[docs-link]: https://jump.allsafex.com/docs
 [discord-link]: https://discord.com/invite/W6vYXmAQG2
 [deepwiki-link]: https://deepwiki.com/allsafex/allsafex/
 [contributing-link]: https://github.com/danieldestaw/allsafex/blob/dev/CONTRIBUTING.md

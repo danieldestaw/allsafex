@@ -1,7 +1,7 @@
 <div align="center">
 
-# AllSafeX PAM
-### An Open-Source Privileged Access Management (PAM) Platform
+# AllSafeX Jumphost
+### An Open-Source Jumphost Platform
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)](https://github.com/danieldestaw/allsafex/releases)
@@ -16,7 +16,7 @@
 
 ## 🛡️ What is AllSafeX?
 
-**AllSafeX** is an open-source **Privileged Access Management (PAM)** solution engineered for modern DevOps, SecOps, and IT engineering teams. It enforces Zero Trust principles by mediating, securing, authenticating, and auditing all administrative sessions across critical infrastructure:
+**AllSafeX** is an open-source **Jumphost** solution engineered for modern DevOps, SecOps, and IT engineering teams. It enforces Zero Trust principles by mediating, securing, authenticating, and auditing all administrative sessions across critical infrastructure:
 
 - **SSH & Telnet** infrastructure (Linux, Unix, network appliances)
 - **RDP & VNC** remote desktops (Windows, macOS)

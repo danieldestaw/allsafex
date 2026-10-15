@@ -124,12 +124,12 @@
             }
         }
     </style>
-  <script type="module" crossorigin src="/ui/assets/js/index.DhTKJ1Xk.js?v=6"></script>
+  <script type="module" crossorigin src="/ui/assets/js/index.DhTKJ1Xk.js?v=7"></script>
   <link rel="modulepreload" crossorigin href="/ui/assets/js/_plugin-vue_export-helper.DOKAWpXA.js">
   <link rel="modulepreload" crossorigin href="/ui/assets/js/common.CrUqnYLU.js">
   <link rel="modulepreload" crossorigin href="/ui/assets/js/env.DG0lntOl.js">
   <link rel="modulepreload" crossorigin href="/ui/assets/js/store.pLHeQRgz.js">
-  <link rel="stylesheet" crossorigin href="/ui/assets/css/index.allsafex_v3.css?v=6">
+  <link rel="stylesheet" crossorigin href="/ui/assets/css/index.allsafex_v3.css?v=7">
 
     <!-- AllSafeX Custom Theme & Brand Configuration -->
     <script>
@@ -205,6 +205,15 @@
                 }
             }
 
+            let logoTimer = null;
+            function debouncedEnforceLogos() {
+                if (logoTimer) return;
+                logoTimer = setTimeout(function() {
+                    logoTimer = null;
+                    enforceLogos();
+                }, 200);
+            }
+
             const brandObserver = new MutationObserver(function(mutations) {
                 for (let i = 0; i < mutations.length; i++) {
                     const added = mutations[i].addedNodes;
@@ -212,16 +221,16 @@
                         replaceBrand(added[j]);
                     }
                 }
-                enforceLogos();
+                debouncedEnforceLogos();
             });
 
             window.addEventListener('DOMContentLoaded', function() {
                 replaceBrand(document.body);
                 enforceLogos();
-                brandObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
+                brandObserver.observe(document.body, { childList: true, subtree: true });
             });
 
-            setInterval(enforceLogos, 250);
+            setInterval(enforceLogos, 1000);
         })();
     </script>
 
@@ -601,25 +610,34 @@
         return 'console';
     }
 
+    let currentActiveId = null;
     function updateActiveUI(activeId) {
+        if (currentActiveId === activeId) return;
+        currentActiveId = activeId;
         const items = document.querySelectorAll('.allsafex-rail-item');
-        items.forEach(el => {
+        for (let i = 0; i < items.length; i++) {
+            const el = items[i];
             if (el.getAttribute('data-id') === activeId) {
                 el.classList.add('is-active');
             } else {
                 el.classList.remove('is-active');
             }
-        });
+        }
     }
 
+    let currentLang = null;
     function updateLabels() {
-        RAIL_MODULES.forEach(mod => {
-            const labelEl = document.querySelector(`.allsafex-rail-item[data-id="${mod.id}"] .allsafex-rail-label`);
-            const itemEl = document.querySelector(`.allsafex-rail-item[data-id="${mod.id}"]`);
+        const lang = getLocale();
+        if (currentLang === lang) return;
+        currentLang = lang;
+        for (let i = 0; i < RAIL_MODULES.length; i++) {
+            const mod = RAIL_MODULES[i];
+            const labelEl = document.querySelector('.allsafex-rail-item[data-id="' + mod.id + '"] .allsafex-rail-label');
+            const itemEl = document.querySelector('.allsafex-rail-item[data-id="' + mod.id + '"]');
             const text = getLabel(mod.id);
-            if (labelEl) labelEl.textContent = text;
-            if (itemEl) itemEl.setAttribute('title', text);
-        });
+            if (labelEl && labelEl.textContent !== text) labelEl.textContent = text;
+            if (itemEl && itemEl.getAttribute('title') !== text) itemEl.setAttribute('title', text);
+        }
     }
 
     async function navigateToModule(mod) {
@@ -713,23 +731,39 @@
         return rail;
     }
 
+    let isMounting = false;
     function ensureRailMounted() {
+        if (isMounting) return;
         const sidebar = document.querySelector('.sidebar-container');
         const mainContainer = document.querySelector('.main-container');
         const existingRail = document.getElementById('allsafex-primary-rail');
 
         if (!sidebar || !mainContainer) {
-            if (existingRail) existingRail.style.display = 'none';
+            if (existingRail && existingRail.style.display !== 'none') {
+                existingRail.style.display = 'none';
+            }
             return;
         }
 
         if (!existingRail) {
-            const rail = createRailElement();
-            mainContainer.insertBefore(rail, sidebar);
+            isMounting = true;
+            try {
+                const rail = createRailElement();
+                mainContainer.insertBefore(rail, sidebar);
+            } finally {
+                isMounting = false;
+            }
         } else {
-            existingRail.style.display = 'flex';
-            if (existingRail.nextElementSibling !== sidebar && sidebar.parentNode === mainContainer) {
-                mainContainer.insertBefore(existingRail, sidebar);
+            if (existingRail.parentElement !== mainContainer) {
+                isMounting = true;
+                try {
+                    mainContainer.insertBefore(existingRail, sidebar);
+                } finally {
+                    isMounting = false;
+                }
+            }
+            if (existingRail.style.display !== 'flex') {
+                existingRail.style.display = 'flex';
             }
         }
         updateActiveUI(detectActiveModule());
@@ -743,18 +777,14 @@
         updateActiveUI(detectActiveModule());
     });
     window.addEventListener('storage', function() {
+        currentLang = null;
         updateActiveUI(detectActiveModule());
         updateLabels();
     });
 
-    const railObserver = new MutationObserver(function() {
-        ensureRailMounted();
-    });
-
     function initRail() {
         ensureRailMounted();
-        railObserver.observe(document.body, { childList: true, subtree: true });
-        setInterval(ensureRailMounted, 800);
+        setInterval(ensureRailMounted, 500);
     }
 
     if (document.readyState === 'loading') {

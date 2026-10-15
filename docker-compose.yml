@@ -87,7 +87,7 @@ services:
     depends_on:
       - core
     volumes:
-      - ./koko_locale:/opt/koko/locale:ro
+      - ./allsafex_gateway_locale:/opt/koko/locale:ro
 
   web:
     image: jumpserver/web:v5.0.0-ce
@@ -105,10 +105,10 @@ services:
       - koko
     volumes:
       - jms_data:/opt/jumpserver/data
-      - ./lina:/opt/lina
+      - ./allsafex_console:/opt/lina
       - ./static_img:/opt/static_img:ro
       - ./nginx_conf/00_branding.conf:/etc/nginx/includes/00_branding.conf:ro
-      - ./luna:/opt/luna
+      - ./allsafex_workbench:/opt/luna
 
 volumes:
   jms_pgdata:

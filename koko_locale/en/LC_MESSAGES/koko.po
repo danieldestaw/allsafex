@@ -785,8 +785,8 @@ msgstr "Exit fullscreen"
 msgid "Reset accent"
 msgstr "Reset accent"
 
-msgid "Quit this Koko SSH session?"
-msgstr "Quit this Koko SSH session?"
+msgid "Quit this AllSafeX Gateway session?"
+msgstr "Quit this AllSafeX Gateway session?"
 
 msgid "This asset's protocols (%s) are unsupported, so it cannot be connected"
 msgstr "This asset's protocols (%s) are unsupported, so it cannot be connected"

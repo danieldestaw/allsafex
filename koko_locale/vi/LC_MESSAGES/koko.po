@@ -1012,8 +1012,8 @@ msgstr "Thoát toàn màn hình"
 msgid "Reset accent"
 msgstr "Đặt lại màu nhấn"
 
-msgid "Quit this Koko SSH session?"
-msgstr "Thoát phiên SSH Koko này?"
+msgid "Quit this AllSafeX Gateway session?"
+msgstr "Thoát phiên SSH AllSafeX Gateway này?"
 
 msgid "This asset's protocols (%s) are unsupported, so it cannot be connected"
 msgstr "Các giao thức của tài sản này (%s) không được hỗ trợ nên không thể kết nối"

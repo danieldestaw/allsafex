@@ -1043,8 +1043,8 @@ msgstr "全画面表示を終了"
 msgid "Reset accent"
 msgstr "アクセントをリセット"
 
-msgid "Quit this Koko SSH session?"
-msgstr "この Koko SSH セッションを終了しますか？"
+msgid "Quit this AllSafeX Gateway session?"
+msgstr "この AllSafeX Gateway セッションを終了しますか？"
 
 msgid "This asset's protocols (%s) are unsupported, so it cannot be connected"
 msgstr "この資産のプロトコル（%s）はサポートされていないため、接続できません"

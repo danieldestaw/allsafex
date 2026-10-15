@@ -1043,5 +1043,5 @@ msgstr "退出全屏"
 msgid "Reset accent"
 msgstr "还原主题色"
 
-msgid "Quit this Koko SSH session?"
-msgstr "确定退出本次 Koko SSH 会话？"
+msgid "Quit this AllSafeX Gateway session?"
+msgstr "确定退出本次 AllSafeX Gateway 会话？"

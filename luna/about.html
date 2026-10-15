@@ -126,15 +126,18 @@ input[type="radio"]:checked, input[type="checkbox"]:checked, [aria-checked="true
 </style>
 <script>
   (function() {
-    function sanitizeTitle(val) {
-      if (!val || typeof val !== 'string') return 'AllSafeX Workspace';
+        function sanitizeTitle(val) {
+      if (!val || typeof val !== "string") return "AllSafeX Workspace";
       var clean = val
-        .replace(/Luna\s*-\s*JumpServer\s*Workspace/gi, 'AllSafeX Workspace')
-        .replace(/Luna\s*-\s*JumpServer/gi, 'AllSafeX Workspace')
-        .replace(/JumpServer/gi, 'AllSafeX')
-        .replace(/\bLuna\b/gi, 'AllSafeX Workspace');
+        .replace(/Luna\s*-\s*JumpServer\s*Workspace/gi, "AllSafeX Workspace")
+        .replace(/Luna\s*-\s*JumpServer/gi, "AllSafeX Workspace")
+        .replace(/JumpServer/gi, "AllSafeX")
+        .replace(/\bLuna\b/gi, "AllSafeX Workspace")
+        .replace(/\bKoKo\b/gi, "AllSafeX SSH Gateway")
+        .replace(/\bLion\b/gi, "AllSafeX Desktop Gateway")
+        .replace(/\bLina\b/gi, "AllSafeX Console");
       if (/luna/i.test(clean) || /jumpserver/i.test(clean)) {
-        clean = 'AllSafeX Workspace';
+        clean = clean.replace(/luna/gi, "AllSafeX").replace(/jumpserver/gi, "AllSafeX");
       }
       return clean;
     }
@@ -187,14 +190,23 @@ input[type="radio"]:checked, input[type="checkbox"]:checked, [aria-checked="true
       if (node.nodeType === Node.TEXT_NODE) {
         if (node.nodeValue) {
           var text = node.nodeValue;
-          if (text.includes("JumpServer")) {
+                    if (text.includes("JumpServer")) {
             text = text.replace(/JumpServer/g, "AllSafeX");
           }
-          if (/\bKoKo\b/.test(text)) {
-            text = text.replace(/\bKoKo\b/g, "AllSafeX SSH Gateway");
+          if (/\bjumpserver\b/i.test(text)) {
+            text = text.replace(/\bjumpserver\b/gi, "AllSafeX");
           }
-          if (/\bLuna\b/.test(text) && !text.includes("LunaSetting")) {
-            text = text.replace(/\bLuna\b/g, "AllSafeX Workspace");
+          if (/\bKoKo\b/i.test(text)) {
+            text = text.replace(/\bKoKo\b/gi, "AllSafeX SSH Gateway");
+          }
+          if (/\bLion\b/i.test(text)) {
+            text = text.replace(/\bLion\b/gi, "AllSafeX Desktop Gateway");
+          }
+          if (/\bLuna\b/i.test(text) && !text.includes("LunaSetting") && !text.includes("luna-")) {
+            text = text.replace(/\bLuna\b/gi, "AllSafeX Workspace");
+          }
+          if (/\bLina\b/i.test(text)) {
+            text = text.replace(/\bLina\b/gi, "AllSafeX Console");
           }
           if (node.nodeValue !== text) {
             node.nodeValue = text;

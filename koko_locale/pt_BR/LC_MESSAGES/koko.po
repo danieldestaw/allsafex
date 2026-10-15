@@ -1043,7 +1043,7 @@ msgstr "Sair da tela cheia"
 msgid "Reset accent"
 msgstr "Restaurar cor"
 
-msgid "Quit this Koko SSH session?"
+msgid "Quit this AllSafeX Gateway session?"
 msgstr "Sair desta sessão SSH do Koko?"
 
 msgid "This asset's protocols (%s) are unsupported, so it cannot be connected"

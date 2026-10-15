@@ -53,18 +53,18 @@ class ComponentLoad(TextChoices):
 
 
 class TerminalType(TextChoices):
-    koko = 'koko', 'KoKo'
+    koko = 'koko', 'AllSafeX SSH Gateway'
     guacamole = 'guacamole', 'Guacamole'
     omnidb = 'omnidb', 'OmniDB'
     xrdp = 'xrdp', 'Xrdp'
-    lion = 'lion', 'Lion'
-    core = 'core', 'Core'
+    lion = 'lion', 'AllSafeX Desktop Gateway'
+    core = 'core', 'AllSafeX Core'
     celery = 'celery', 'Celery'
     magnus = 'magnus', 'Magnus'
     razor = 'razor', 'Razor'
     tinker = 'tinker', 'Tinker'
     video_worker = 'video_worker', 'Video Worker'
-    chen = 'chen', 'Chen'
+    chen = 'chen', 'AllSafeX Database Gateway'
     kael = 'kael', 'Kael'
     panda = 'panda', 'Panda'
     nec = 'nec', 'Nec'

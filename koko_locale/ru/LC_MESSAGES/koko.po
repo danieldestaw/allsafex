@@ -1043,7 +1043,7 @@ msgstr "Выйти из полноэкранного режима"
 msgid "Reset accent"
 msgstr "Сбросить цвет"
 
-msgid "Quit this Koko SSH session?"
+msgid "Quit this AllSafeX Gateway session?"
 msgstr "Выйти из этого SSH-сеанса Koko?"
 
 msgid "This asset's protocols (%s) are unsupported, so it cannot be connected"

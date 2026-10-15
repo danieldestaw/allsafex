@@ -124,12 +124,12 @@
             }
         }
     </style>
-  <script type="module" crossorigin src="/ui/assets/js/index.DhTKJ1Xk.js?v=5"></script>
+  <script type="module" crossorigin src="/ui/assets/js/index.DhTKJ1Xk.js?v=6"></script>
   <link rel="modulepreload" crossorigin href="/ui/assets/js/_plugin-vue_export-helper.DOKAWpXA.js">
   <link rel="modulepreload" crossorigin href="/ui/assets/js/common.CrUqnYLU.js">
   <link rel="modulepreload" crossorigin href="/ui/assets/js/env.DG0lntOl.js">
   <link rel="modulepreload" crossorigin href="/ui/assets/js/store.pLHeQRgz.js">
-  <link rel="stylesheet" crossorigin href="/ui/assets/css/index.allsafex_v3.css?v=5">
+  <link rel="stylesheet" crossorigin href="/ui/assets/css/index.allsafex_v3.css?v=6">
 
     <!-- AllSafeX Custom Theme & Brand Configuration -->
     <script>
@@ -379,6 +379,133 @@
         background-color: #FF7900 !important;
         color: #ffffff !important;
     }
+
+    /* =========================================================
+       AllSafeX Primary Left Sidebar Rail (Console, PAM, Audit, Workbench)
+       ========================================================= */
+    #allsafex-primary-rail {
+        position: relative !important;
+        width: 68px !important;
+        min-width: 68px !important;
+        max-width: 68px !important;
+        flex: 0 0 68px !important;
+        height: 100% !important;
+        background-color: #111418 !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+        box-sizing: border-box !important;
+        z-index: 10 !important;
+        user-select: none !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        scrollbar-width: none !important;
+    }
+    #allsafex-primary-rail::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .allsafex-rail-item {
+        position: relative !important;
+        width: 54px !important;
+        height: 52px !important;
+        margin-bottom: 8px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 8px !important;
+        color: #94a3b8 !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        background: transparent !important;
+        box-sizing: border-box !important;
+        transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease !important;
+        outline: none !important;
+    }
+
+    .allsafex-rail-item:hover {
+        background-color: rgba(255, 121, 0, 0.12) !important;
+        color: #FF7900 !important;
+        transform: translateY(-1px) !important;
+    }
+
+    .allsafex-rail-item:active {
+        transform: translateY(0) !important;
+    }
+
+    .allsafex-rail-item.is-active {
+        background-color: rgba(255, 121, 0, 0.18) !important;
+        color: #FF7900 !important;
+    }
+
+    .allsafex-rail-item.is-active::before {
+        content: "" !important;
+        position: absolute !important;
+        left: -7px !important;
+        top: 10px !important;
+        bottom: 10px !important;
+        width: 3.5px !important;
+        background: #FF7900 !important;
+        border-radius: 0 3px 3px 0 !important;
+        box-shadow: 0 0 10px rgba(255, 121, 0, 0.7) !important;
+    }
+
+    .allsafex-rail-icon {
+        width: 22px !important;
+        height: 22px !important;
+        margin-bottom: 3px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: inherit !important;
+    }
+
+    .allsafex-rail-icon svg {
+        width: 22px !important;
+        height: 22px !important;
+        stroke: currentColor !important;
+        fill: none !important;
+    }
+
+    .allsafex-rail-label {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        line-height: 1.1 !important;
+        letter-spacing: 0.2px !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+        color: inherit !important;
+    }
+
+    .allsafex-rail-item.is-active .allsafex-rail-label {
+        font-weight: 600 !important;
+    }
+
+    /* Suppress old hover/click popover in main sidebar header */
+    .view-switcher-popper,
+    .el-popper.view-switcher-popper,
+    .left-side-wrapper .nav-header .nav-title .switch-view .icon-zone,
+    .left-side-wrapper .nav-header .nav-title .switch-view .switch-view-icon,
+    .left-side-wrapper .nav-header .nav-title .switch-view .el-icon,
+    .left-side-wrapper .nav-header .nav-title .switch-view svg {
+        display: none !important;
+    }
+    .left-side-wrapper .nav-header .nav-title .switch-view {
+        pointer-events: none !important;
+        cursor: default !important;
+    }
+
+    @media screen and (max-width: 768px) {
+        #allsafex-primary-rail {
+            display: none !important;
+        }
+    }
 </style>
 </head>
 <body>
@@ -410,5 +537,232 @@
 <div id="loading">
     <div class="spinner"></div>
 </div>
+
+<!-- AllSafeX Primary Left Navigation Rail Component -->
+<script>
+(function() {
+    const RAIL_MODULES = [
+        {
+            id: 'console',
+            path: '/console/dashboard',
+            hashMatch: /^\/console/i,
+            icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>'
+        },
+        {
+            id: 'pam',
+            path: '/pam/dashboard',
+            hashMatch: /^\/pam/i,
+            icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><circle cx="12" cy="11" r="2"></circle><path d="M12 13v3"></path></svg>'
+        },
+        {
+            id: 'audit',
+            path: '/audit/dashboard',
+            hashMatch: /^\/audit/i,
+            icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="13" y2="17"></line><polyline points="9 9 10 9 11 9"></polyline></svg>'
+        },
+        {
+            id: 'workbench',
+            path: '/workbench/home',
+            hashMatch: /^\/workbench/i,
+            icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><polyline points="7 8 10 10.5 7 13"></polyline><line x1="12" y1="13" x2="16" y2="13"></line></svg>'
+        }
+    ];
+
+    const I18N = {
+        en: { console: 'Console', pam: 'PAM', audit: 'Audit', workbench: 'Workbench' },
+        am: { console: 'ኮንሶል', pam: 'PAM', audit: 'ኦዲት', workbench: 'የስራ ቦታ' },
+        zh: { console: '控制台', pam: 'PAM', audit: '审计台', workbench: '工作台' },
+        es: { console: 'Consola', pam: 'PAM', audit: 'Auditoría', workbench: 'Espacio' }
+    };
+
+    function getLocale() {
+        return localStorage.getItem('django_language') || (document.cookie.match(/django_language=([^;]+)/) || [])[1] || 'en';
+    }
+
+    function getLabel(modId) {
+        const lang = getLocale();
+        const dict = I18N[lang] || I18N.en;
+        return dict[modId] || I18N.en[modId] || modId;
+    }
+
+    function detectActiveModule() {
+        const hash = (window.location.hash || '').replace(/^#/, '');
+        for (const mod of RAIL_MODULES) {
+            if (mod.hashMatch.test(hash)) return mod.id;
+        }
+        const preView = localStorage.getItem('preView');
+        if (preView && RAIL_MODULES.some(m => m.id === preView)) {
+            return preView;
+        }
+        try {
+            const v = window.__STORE__?.state?.permission?.currentViewRoute?.meta?.view || window.__STORE__?.getters?.currentViewRoute?.name;
+            if (v && RAIL_MODULES.some(m => m.id === v)) return v;
+        } catch(e) {}
+        return 'console';
+    }
+
+    function updateActiveUI(activeId) {
+        const items = document.querySelectorAll('.allsafex-rail-item');
+        items.forEach(el => {
+            if (el.getAttribute('data-id') === activeId) {
+                el.classList.add('is-active');
+            } else {
+                el.classList.remove('is-active');
+            }
+        });
+    }
+
+    function updateLabels() {
+        RAIL_MODULES.forEach(mod => {
+            const labelEl = document.querySelector(`.allsafex-rail-item[data-id="${mod.id}"] .allsafex-rail-label`);
+            const itemEl = document.querySelector(`.allsafex-rail-item[data-id="${mod.id}"]`);
+            const text = getLabel(mod.id);
+            if (labelEl) labelEl.textContent = text;
+            if (itemEl) itemEl.setAttribute('title', text);
+        });
+    }
+
+    async function navigateToModule(mod) {
+        const currentActive = detectActiveModule();
+        if (currentActive === mod.id && window.location.hash.startsWith('#' + mod.path)) {
+            return;
+        }
+
+        updateActiveUI(mod.id);
+        try {
+            localStorage.setItem('preView', mod.id);
+        } catch(e) {}
+
+        let targetPath = mod.path;
+        try {
+            const routes = window.__STORE__?.state?.permission?.viewRoutes || window.__STORE__?.getters?.viewRoutes;
+            if (Array.isArray(routes)) {
+                const found = routes.find(r => r.name === mod.id || r.meta?.view === mod.id);
+                if (found) {
+                    if (typeof found.redirect === 'string' && found.redirect) {
+                        targetPath = found.redirect;
+                    } else if (found.meta?.fullPath || found.path) {
+                        targetPath = found.meta?.fullPath || found.path;
+                    }
+                }
+            }
+        } catch(e) {}
+
+        if (window.__STORE__) {
+            try {
+                await window.__STORE__.dispatch('app/reset');
+            } catch(e) {
+                console.warn('[AllSafeX Rail] Store reset error:', e);
+            }
+        }
+
+        if (window.__ROUTER__) {
+            try {
+                await window.__ROUTER__.push(targetPath);
+                return;
+            } catch(e) {
+                console.warn('[AllSafeX Rail] Router push error:', e);
+            }
+        }
+
+        window.location.hash = '#' + targetPath;
+    }
+
+    function createRailElement() {
+        const rail = document.createElement('aside');
+        rail.id = 'allsafex-primary-rail';
+        rail.setAttribute('aria-label', 'Primary Navigation Rail');
+
+        const activeId = detectActiveModule();
+
+        RAIL_MODULES.forEach(mod => {
+            const item = document.createElement('div');
+            item.className = 'allsafex-rail-item' + (mod.id === activeId ? ' is-active' : '');
+            item.setAttribute('data-id', mod.id);
+            item.setAttribute('role', 'button');
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('title', getLabel(mod.id));
+
+            const iconWrap = document.createElement('div');
+            iconWrap.className = 'allsafex-rail-icon';
+            iconWrap.innerHTML = mod.icon;
+
+            const label = document.createElement('span');
+            label.className = 'allsafex-rail-label';
+            label.textContent = getLabel(mod.id);
+
+            item.appendChild(iconWrap);
+            item.appendChild(label);
+
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateToModule(mod);
+            });
+
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    navigateToModule(mod);
+                }
+            });
+
+            rail.appendChild(item);
+        });
+
+        return rail;
+    }
+
+    function ensureRailMounted() {
+        const sidebar = document.querySelector('.sidebar-container');
+        const mainContainer = document.querySelector('.main-container');
+        const existingRail = document.getElementById('allsafex-primary-rail');
+
+        if (!sidebar || !mainContainer) {
+            if (existingRail) existingRail.style.display = 'none';
+            return;
+        }
+
+        if (!existingRail) {
+            const rail = createRailElement();
+            mainContainer.insertBefore(rail, sidebar);
+        } else {
+            existingRail.style.display = 'flex';
+            if (existingRail.nextElementSibling !== sidebar && sidebar.parentNode === mainContainer) {
+                mainContainer.insertBefore(existingRail, sidebar);
+            }
+        }
+        updateActiveUI(detectActiveModule());
+        updateLabels();
+    }
+
+    window.addEventListener('hashchange', function() {
+        updateActiveUI(detectActiveModule());
+    });
+    window.addEventListener('popstate', function() {
+        updateActiveUI(detectActiveModule());
+    });
+    window.addEventListener('storage', function() {
+        updateActiveUI(detectActiveModule());
+        updateLabels();
+    });
+
+    const railObserver = new MutationObserver(function() {
+        ensureRailMounted();
+    });
+
+    function initRail() {
+        ensureRailMounted();
+        railObserver.observe(document.body, { childList: true, subtree: true });
+        setInterval(ensureRailMounted, 800);
+    }
+
+    if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', initRail);
+    } else {
+        initRail();
+    }
+})();
+</script>
 </body>
 </html>

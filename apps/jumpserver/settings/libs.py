@@ -92,16 +92,16 @@ SPECTACULAR_SETTINGS = {
     'DISABLE_ERRORS_AND_WARNINGS': True
 }
 
-if CONFIG.VENDOR.lower() == 'jumpserver':
+if CONFIG.VENDOR.lower() in ('jumpserver', 'allsafex'):
     SPECTACULAR_SETTINGS.update({
         'LICENSE': {
             'name': 'GPLv3 License',
             'url': 'https://www.gnu.org/licenses/gpl-3.0.html',
         },
         'CONTACT': {
-            'name': 'JumpServer',
-            'url': 'https://jumpserver.org',
-            'email': 'support@jumpserver.org',
+            'name': 'AllSafeX',
+            'url': 'https://allsafex-pam.allsafex.com',
+            'email': 'support@allsafex-pam.allsafex.com',
         },
     })
 
@@ -253,7 +253,7 @@ OAUTH2_PROVIDER = {
     'REFRESH_TOKEN_EXPIRE_SECONDS': CONFIG.OAUTH2_PROVIDER_REFRESH_TOKEN_EXPIRE_SECONDS,
 }
 OAUTH2_PROVIDER_CLIENT_REDIRECT_URI = 'jms2://auth/callback'
-OAUTH2_PROVIDER_JUMPSERVER_CLIENT_NAME = 'JumpServer Client'
+OAUTH2_PROVIDER_JUMPSERVER_CLIENT_NAME = 'AllSafeX Client'
 
 if CONFIG.DEBUG_DEV:
     OAUTH2_PROVIDER['ALLOWED_REDIRECT_URI_SCHEMES'].append('http')

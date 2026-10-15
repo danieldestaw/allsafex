@@ -154,8 +154,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://www.jumpserver.com"
-Documentation = "https://www.jumpserver.com/docs"
+Homepage = "https://allsafex-pam.allsafex.com"
+Documentation = "https://allsafex-pam.allsafex.com"
 
 [tool.uv]
 default-groups = ["xpack", "dev"]

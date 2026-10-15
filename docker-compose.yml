@@ -76,6 +76,8 @@ services:
       - ./apps/templates/resource_download.html:/opt/jumpserver/apps/templates/resource_download.html:ro
       - ./apps/authentication/mixins.py:/opt/jumpserver/apps/authentication/mixins.py:ro
       - ./apps/terminal/const.py:/opt/jumpserver/apps/terminal/const.py:ro
+      - ./apps/jumpserver/settings/libs.py:/opt/jumpserver/apps/jumpserver/settings/libs.py:ro
+      - ./apps/ops/variables.py:/opt/jumpserver/apps/ops/variables.py:ro
 
   koko:
     image: jumpserver/koko:v5.0.0-ce

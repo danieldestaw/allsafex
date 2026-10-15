@@ -445,9 +445,9 @@ class Config(dict):
         'SAML2_SP_ADVANCED_SETTINGS': {
             "organization": {
                 "en": {
-                    "name": "JumpServer",
-                    "displayname": "JumpServer",
-                    "url": "https://jumpserver.com/"
+                    "name": "AllSafeX",
+                    "displayname": "AllSafeX",
+                    "url": "https://allsafex-pam.allsafex.com/"
                 }
             },
             "strict": True,
@@ -484,7 +484,7 @@ class Config(dict):
 
         'AUTH_PASSKEY': False,
         'FIDO_SERVER_ID': '',
-        'FIDO_SERVER_NAME': 'JumpServer',
+        'FIDO_SERVER_NAME': 'AllSafeX',
 
         # 企业微信
         'AUTH_WECOM': False,
@@ -619,7 +619,7 @@ class Config(dict):
         'EMAIL_CUSTOM_USER_CREATED_BODY': _('Your account has been created successfully'),
 
         'OTP_VALID_WINDOW': 2,
-        'OTP_ISSUER_NAME': 'JumpServer',
+        'OTP_ISSUER_NAME': 'AllSafeX',
         'OTP_DIGEST': 'sha1',
         'EMAIL_SUFFIX': 'example.com',
 
@@ -856,7 +856,7 @@ class Config(dict):
         # oauth2_provider settings 
         'OAUTH2_PROVIDER_ACCESS_TOKEN_EXPIRE_SECONDS': 60 * 60,
         'OAUTH2_PROVIDER_REFRESH_TOKEN_EXPIRE_SECONDS': 60 * 60 * 24 * 7,
-        'VENDOR': 'JumpServer',
+        'VENDOR': 'AllSafeX',
 
         # JDMC
         'JDMC_ENABLED': True,

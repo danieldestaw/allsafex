@@ -1,19 +1,19 @@
 <div align="center">
   <a name="readme-top"></a>
-  <a href="https://jumpserver.com" target="_blank"><img src="https://download.jumpserver.org/images/jumpserver-logo.svg" alt="JumpServer" width="300" /></a>
+  <a href="https://allsafex-pam.allsafex.com" target="_blank"><img src="https://download.allsafex-pam.allsafex.com/images/allsafex-logo.svg" alt="AllSafeX" width="300" /></a>
   
 ## オープンソースの PAM プラットフォーム (バスティオン ホスト)
 
 </div>
 <br/>
 
-## JumpServer とは？
+## AllSafeX とは？
 
-JumpServer は、DevOps および IT チームに対して、SSH、RDP、Kubernetes、データベースおよび RemoteApp エンドポイントへのオンデマンドで安全なアクセスを提供するオープンソースの特権アクセス管理 (PAM) プラットフォームです。
+AllSafeX は、DevOps および IT チームに対して、SSH、RDP、Kubernetes、データベースおよび RemoteApp エンドポイントへのオンデマンドで安全なアクセスを提供するオープンソースの特権アクセス管理 (PAM) プラットフォームです。
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="https://www.jumpserver.com/images/jumpserver-arch-light.png">
-  <source media="(prefers-color-scheme: dark)" srcset="https://www.jumpserver.com/images/jumpserver-arch-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://www.allsafex.com/images/allsafex-arch-light.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://www.allsafex.com/images/allsafex-arch-dark.png">
   <img src="https://github.com/user-attachments/assets/dd612f3d-c958-4f84-b164-f31b75454d7f" alt="Theme-based Image">
 </picture>
 
@@ -23,56 +23,56 @@ JumpServer は、DevOps および IT チームに対して、SSH、RDP、Kuberne
 クリーンな Linux サーバーを準備します (64 ビット, >= 4c8g)
 
 ```sh
-curl -sSL https://github.com/jumpserver/jumpserver/releases/latest/download/quick_start.sh | bash
+curl -sSL https://github.com/danieldestaw/allsafex/releases/latest/download/quick_start.sh | bash
 ```
 
-ブラウザで JumpServer にアクセスします: `http://your-jumpserver-ip/`
+ブラウザで AllSafeX にアクセスします: `http://your-allsafex-ip/`
 - ユーザー名: `admin`
 - パスワード: `ChangeMe`
 
-[![JumpServer Quickstart](https://github.com/user-attachments/assets/0f32f52b-9935-485e-8534-336c63389612)](https://www.youtube.com/watch?v=UlGYRbKrpgY "JumpServer Quickstart")
+[![AllSafeX Quickstart](https://github.com/user-attachments/assets/0f32f52b-9935-485e-8534-336c63389612)](https://www.youtube.com/watch?v=UlGYRbKrpgY "AllSafeX Quickstart")
 
 ## スクリーンショット
 <table style="border-collapse: collapse; border: 1px solid black;">
   <tr>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/jumpserver/jumpserver/assets/32935519/99fabe5b-0475-4a53-9116-4c370a1426c4" alt="JumpServer Console"   /></td>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/user-attachments/assets/7c1f81af-37e8-4f07-8ac9-182895e1062e" alt="JumpServer PAM"   /></td>    
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/danieldestaw/allsafex/assets/32935519/99fabe5b-0475-4a53-9116-4c370a1426c4" alt="AllSafeX Console"   /></td>
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/user-attachments/assets/7c1f81af-37e8-4f07-8ac9-182895e1062e" alt="AllSafeX PAM"   /></td>    
   </tr>
   <tr>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/jumpserver/jumpserver/assets/32935519/a424d731-1c70-4108-a7d8-5bbf387dda9a" alt="JumpServer Audits"   /></td>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/jumpserver/jumpserver/assets/32935519/393d2c27-a2d0-4dea-882d-00ed509e00c9" alt="JumpServer Workbench"   /></td>
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/danieldestaw/allsafex/assets/32935519/a424d731-1c70-4108-a7d8-5bbf387dda9a" alt="AllSafeX Audits"   /></td>
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/danieldestaw/allsafex/assets/32935519/393d2c27-a2d0-4dea-882d-00ed509e00c9" alt="AllSafeX Workbench"   /></td>
   </tr>
   <tr>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/user-attachments/assets/eaa41f66-8cc8-4f01-a001-0d258501f1c9" alt="JumpServer RBAC"   /></td>     
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/jumpserver/jumpserver/assets/32935519/3a2611cd-8902-49b8-b82b-2a6dac851f3e" alt="JumpServer Settings"   /></td>
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/user-attachments/assets/eaa41f66-8cc8-4f01-a001-0d258501f1c9" alt="AllSafeX RBAC"   /></td>     
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/danieldestaw/allsafex/assets/32935519/3a2611cd-8902-49b8-b82b-2a6dac851f3e" alt="AllSafeX Settings"   /></td>
   </tr>
   <tr>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/jumpserver/jumpserver/assets/32935519/1e236093-31f7-4563-8eb1-e36d865f1568" alt="JumpServer SSH"   /></td>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/jumpserver/jumpserver/assets/32935519/69373a82-f7ab-41e8-b763-bbad2ba52167" alt="JumpServer RDP"   /></td>
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/danieldestaw/allsafex/assets/32935519/1e236093-31f7-4563-8eb1-e36d865f1568" alt="AllSafeX SSH"   /></td>
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/danieldestaw/allsafex/assets/32935519/69373a82-f7ab-41e8-b763-bbad2ba52167" alt="AllSafeX RDP"   /></td>
   </tr>
   <tr>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/jumpserver/jumpserver/assets/32935519/5bed98c6-cbe8-4073-9597-d53c69dc3957" alt="JumpServer K8s"   /></td>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/jumpserver/jumpserver/assets/32935519/b80ad654-548f-42bc-ba3d-c1cfdf1b46d6" alt="JumpServer DB"   /></td>
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/danieldestaw/allsafex/assets/32935519/5bed98c6-cbe8-4073-9597-d53c69dc3957" alt="AllSafeX K8s"   /></td>
+    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/danieldestaw/allsafex/assets/32935519/b80ad654-548f-42bc-ba3d-c1cfdf1b46d6" alt="AllSafeX DB"   /></td>
   </tr>
 </table>
 
 ## コンポーネント
 
-JumpServer は、複数の主要コンポーネントで構成されており、これらが集まって JumpServer の機能的なフレームワークを形成し、ユーザーに対して運用管理およびセキュリティ制御の包括的な機能を提供します。
+AllSafeX は、複数の主要コンポーネントで構成されており、これらが集まって AllSafeX の機能的なフレームワークを形成し、ユーザーに対して運用管理およびセキュリティ制御の包括的な機能を提供します。
 
 | プロジェクト                                               | ステータス                                                                                                                                                             | 説明                                                                                                   |
 |--------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| [Lina](https://github.com/jumpserver/lina)             | <a href="https://github.com/jumpserver/lina/releases"><img alt="Lina release" src="https://img.shields.io/github/release/jumpserver/lina.svg" /></a>                   | JumpServer ウェブ UI                                                                                     |
-| [Luna](https://github.com/jumpserver/luna)             | <a href="https://github.com/jumpserver/luna/releases"><img alt="Luna release" src="https://img.shields.io/github/release/jumpserver/luna.svg" /></a>                   | JumpServer ウェブターミナル                                                                                 |
-| [KoKo](https://github.com/jumpserver/koko)             | <a href="https://github.com/jumpserver/koko/releases"><img alt="Koko release" src="https://img.shields.io/github/release/jumpserver/koko.svg" /></a>                   | JumpServer キャラクタプロトコルコネクタ                                                               |
-| [Lion](https://github.com/jumpserver/lion)             | <a href="https://github.com/jumpserver/lion/releases"><img alt="Lion release" src="https://img.shields.io/github/release/jumpserver/lion.svg" /></a>                   | JumpServer グラフィカルプロトコルコネクタ                                                               |
-| [Chen](https://github.com/jumpserver/chen)             | <a href="https://github.com/jumpserver/chen/releases"><img alt="Chen release" src="https://img.shields.io/github/release/jumpserver/chen.svg" />                       | JumpServer ウェブ DB                                                                                     |  
-| [Tinker](https://github.com/jumpserver/tinker)         | <img alt="Tinker" src="https://img.shields.io/badge/release-private-red" />                                                                                            | JumpServer リモートアプリケーションコネクタ (Windows)                                                  |
-| [Panda](https://github.com/jumpserver/Panda)           | <img alt="Panda" src="https://img.shields.io/badge/release-private-red" />                                                                                             | JumpServer EE リモートアプリケーションコネクタ (Linux)                                                |
-| [Razor](https://github.com/jumpserver/razor)           | <img alt="Chen" src="https://img.shields.io/badge/release-private-red" />                                                                                              | JumpServer EE RDP プロキシコネクタ                                                                         |
-| [Magnus](https://github.com/jumpserver/magnus)         | <img alt="Magnus" src="https://img.shields.io/badge/release-private-red" />                                                                                            | JumpServer EE データベースプロキシコネクタ                                                               |
-| [Nec](https://github.com/jumpserver/nec)               | <img alt="Nec" src="https://img.shields.io/badge/release-private-red" />                                                                                               | JumpServer EE VNC プロキシコネクタ                                                                       |
-| [Facelive](https://github.com/jumpserver/facelive)     | <img alt="Facelive" src="https://img.shields.io/badge/release-private-red" />                                                                                          | JumpServer EE 顔認識                                                                                   |
+| [Lina](https://github.com/danieldestaw/lina)             | <a href="https://github.com/danieldestaw/lina/releases"><img alt="Lina release" src="https://img.shields.io/github/release/allsafex/lina.svg" /></a>                   | AllSafeX ウェブ UI                                                                                     |
+| [Luna](https://github.com/danieldestaw/luna)             | <a href="https://github.com/danieldestaw/luna/releases"><img alt="Luna release" src="https://img.shields.io/github/release/allsafex/luna.svg" /></a>                   | AllSafeX ウェブターミナル                                                                                 |
+| [KoKo](https://github.com/danieldestaw/koko)             | <a href="https://github.com/danieldestaw/koko/releases"><img alt="Koko release" src="https://img.shields.io/github/release/allsafex/koko.svg" /></a>                   | AllSafeX キャラクタプロトコルコネクタ                                                               |
+| [Lion](https://github.com/danieldestaw/lion)             | <a href="https://github.com/danieldestaw/lion/releases"><img alt="Lion release" src="https://img.shields.io/github/release/allsafex/lion.svg" /></a>                   | AllSafeX グラフィカルプロトコルコネクタ                                                               |
+| [Chen](https://github.com/danieldestaw/chen)             | <a href="https://github.com/danieldestaw/chen/releases"><img alt="Chen release" src="https://img.shields.io/github/release/allsafex/chen.svg" />                       | AllSafeX ウェブ DB                                                                                     |  
+| [Tinker](https://github.com/danieldestaw/tinker)         | <img alt="Tinker" src="https://img.shields.io/badge/release-private-red" />                                                                                            | AllSafeX リモートアプリケーションコネクタ (Windows)                                                  |
+| [Panda](https://github.com/danieldestaw/Panda)           | <img alt="Panda" src="https://img.shields.io/badge/release-private-red" />                                                                                             | AllSafeX EE リモートアプリケーションコネクタ (Linux)                                                |
+| [Razor](https://github.com/danieldestaw/razor)           | <img alt="Chen" src="https://img.shields.io/badge/release-private-red" />                                                                                              | AllSafeX EE RDP プロキシコネクタ                                                                         |
+| [Magnus](https://github.com/danieldestaw/magnus)         | <img alt="Magnus" src="https://img.shields.io/badge/release-private-red" />                                                                                            | AllSafeX EE データベースプロキシコネクタ                                                               |
+| [Nec](https://github.com/danieldestaw/nec)               | <img alt="Nec" src="https://img.shields.io/badge/release-private-red" />                                                                                               | AllSafeX EE VNC プロキシコネクタ                                                                       |
+| [Facelive](https://github.com/danieldestaw/facelive)     | <img alt="Facelive" src="https://img.shields.io/badge/release-private-red" />                                                                                          | AllSafeX EE 顔認識                                                                                   |
 
 
 ## 貢献
@@ -89,24 +89,24 @@ https://www.gnu.org/licenses/gpl-3.0.html
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an " AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
-<!-- JumpServer official link -->
-[docs-link]: https://jumpserver.com/docs
+<!-- AllSafeX official link -->
+[docs-link]: https://allsafex-pam.allsafex.com/docs
 [discord-link]: https://discord.com/invite/W6vYXmAQG2
-[deepwiki-link]: https://deepwiki.com/jumpserver/jumpserver/
-[contributing-link]: https://github.com/jumpserver/jumpserver/blob/dev/CONTRIBUTING.md
+[deepwiki-link]: https://deepwiki.com/allsafex/allsafex/
+[contributing-link]: https://github.com/danieldestaw/allsafex/blob/dev/CONTRIBUTING.md
 
-<!-- JumpServer Other link-->
+<!-- AllSafeX Other link-->
 [license-link]: https://www.gnu.org/licenses/gpl-3.0.html
-[docker-link]: https://hub.docker.com/u/jumpserver
-[github-release-link]: https://github.com/jumpserver/jumpserver/releases/latest
-[github-stars-link]: https://github.com/jumpserver/jumpserver
-[github-issues-link]: https://github.com/jumpserver/jumpserver/issues
+[docker-link]: https://hub.docker.com/u/allsafex
+[github-release-link]: https://github.com/danieldestaw/allsafex/releases/latest
+[github-stars-link]: https://github.com/danieldestaw/allsafex
+[github-issues-link]: https://github.com/danieldestaw/allsafex/issues
 
 <!-- Shield link-->
 [docs-shield]: https://img.shields.io/badge/documentation-148F76
-[github-release-shield]: https://img.shields.io/github/v/release/jumpserver/jumpserver
-[github-stars-shield]: https://img.shields.io/github/stars/jumpserver/jumpserver?color=%231890FF&style=flat-square   
-[docker-shield]: https://img.shields.io/docker/pulls/jumpserver/jms_all.svg
-[license-shield]: https://img.shields.io/github/license/jumpserver/jumpserver
+[github-release-shield]: https://img.shields.io/github/v/release/allsafex/allsafex
+[github-stars-shield]: https://img.shields.io/github/stars/allsafex/allsafex?color=%231890FF&style=flat-square   
+[docker-shield]: https://img.shields.io/docker/pulls/allsafex/jms_all.svg
+[license-shield]: https://img.shields.io/github/license/allsafex/allsafex
 [deepwiki-shield]: https://img.shields.io/badge/deepwiki-devin?color=blue
 [discord-shield]: https://img.shields.io/discord/1194233267294052363?style=flat&logo=discord&logoColor=%23f5f5f5&labelColor=%235462eb&color=%235462eb

@@ -1,1 +1,1 @@
-function e(e){return(e||`JumpServer`).trim()||`JumpServer`}function t(){return e(void 0)}function n(n=t()){return e(n)===`JumpServer`}export{n,e as r,t};
+function e(e){return(e||`AllSafeX`).trim()||`AllSafeX`}function t(){return e(void 0)}function n(n=t()){return e(n)===`AllSafeX`}export{n,e as r,t};

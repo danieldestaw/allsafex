@@ -107,8 +107,8 @@ class PrepareRequestMixin:
         request_attribute_template = {
             "attributeConsumingService": {
                 "isDefault": False,
-                "serviceName": "JumpServer",
-                "serviceDescription": "JumpServer",
+                "serviceName": "AllSafeX",
+                "serviceDescription": "AllSafeX",
                 "requestedAttributes": attr_list
             }
         }
@@ -133,9 +133,9 @@ class PrepareRequestMixin:
         default = {
             "organization": {
                 "en": {
-                    "name": "JumpServer",
-                    "displayname": "JumpServer",
-                    "url": "https://jumpserver.com/"
+                    "name": "AllSafeX",
+                    "displayname": "AllSafeX",
+                    "url": "https://allsafex-pam.allsafex.com/"
                 }
             },
         }

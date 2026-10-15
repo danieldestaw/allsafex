@@ -69,7 +69,7 @@ All connections occur securely through web browsers or native desktop terminals 
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Docker Engine 20.10+
